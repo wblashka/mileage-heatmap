@@ -53,7 +53,7 @@ class ADDON:
     NAME = "Mileage Heatmap"
     MODULE = "mileage_heatmap"
     REPO = "mileage-heatmap"
-    #ID = ""
+    ID = "0"
     VERSION = __version__
     LICENSE = "GNU AGPLv3"
     AUTHORS = (
