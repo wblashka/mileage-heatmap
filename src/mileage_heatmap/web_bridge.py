@@ -56,7 +56,7 @@ SUPPORTED_CONTEXT_TYPES = Union[DeckBrowser, Overview, DeckStats]
 
 class HeatmapBridge:
 
-    _identifier: str = "revhm"
+    _identifier: str = "milhm"
     _command_splitter: str = "_"
     _payload_splitter: str = ":"
 

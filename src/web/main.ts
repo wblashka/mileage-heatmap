@@ -48,7 +48,7 @@ interface CalHeatmapCellData {
   t: number; // timestamp
 }
 
-class ReviewHeatmap {
+class MileageHeatmap {
   private heatmap: CalHeatMap | null;
 
   constructor(private options: ReviewHeatmapOptions) {
@@ -271,4 +271,4 @@ function tzOffsetByTimestamp(timestamp: number): number {
   return date.getTimezoneOffset() * 60;
 }
 
-globalThis.ReviewHeatmap = ReviewHeatmap;
+globalThis.MileageHeatmap = MileageHeatmap;

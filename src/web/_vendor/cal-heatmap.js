@@ -22,7 +22,7 @@ export var CalHeatMap = function() {
 		// selector string of the container to append the graph to
 		// Accept any string value accepted by document.querySelector or CSS3
 		// or an Element object
-		itemSelector: "#cal-heatmap",
+		itemSelector: "#cal-heatmap-mileage",
 
 		// Whether to paint the calendar on init()
 		// Used by testsuite to reduce testing time
@@ -1719,7 +1719,7 @@ CalHeatMap.prototype = {
 	// FORMATTER																//
 	// =========================================================================//
 
-	formatNumber: d3.format(",g"),
+	formatNumber: d3.format(".2f"),
 
 	formatDate: function(d, format) {
 		"use strict";

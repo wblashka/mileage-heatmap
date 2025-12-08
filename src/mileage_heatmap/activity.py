@@ -508,7 +508,7 @@ GROUP BY day ORDER BY day""".format(
 
         results = []
         for timestamp, total_miles in daily_totals.items():
-            results.append([timestamp, total_miles])
+            results.append([timestamp, round(float(total_miles), 2)])
         
         return results
 

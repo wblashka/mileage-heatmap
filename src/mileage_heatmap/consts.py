@@ -50,10 +50,10 @@ class ADDON:
     Property names need to be all-uppercase with no leading underscores
     """
 
-    NAME = "Review Heatmap"
-    MODULE = "review_heatmap"
-    REPO = "review-heatmap"
-    ID = "1771074083"
+    NAME = "Mileage Heatmap"
+    MODULE = "mileage_heatmap"
+    REPO = "mileage-heatmap"
+    #ID = ""
     VERSION = __version__
     LICENSE = "GNU AGPLv3"
     AUTHORS = (

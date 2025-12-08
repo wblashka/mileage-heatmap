@@ -85,11 +85,11 @@ HTML_HEATMAP: str = f"""
         </div>
         <div style="clear: both;">&nbsp;</div>
     </div>
-    <div id="cal-heatmap"></div>
+    <div id="cal-heatmap-mileage"></div>
 </div>
 <script type="text/javascript">
-    window.reviewHeatmap = new ReviewHeatmap({{options}});
-    reviewHeatmap.create({{data}});
+    window.mileageHeatmap = new MileageHeatmap({{options}});
+    mileageHeatmap.create({{data}});
 </script>
 """
 
