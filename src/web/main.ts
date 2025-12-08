@@ -110,6 +110,7 @@ class MileageHeatmap {
       displayLegend: false,
       domainLabelFormat: this.options.domLabForm,
       tooltip: true,
+      itemSelector: "#cal-heatmap-mileage",
       subDomainTitleFormat: (
         isEmpty: boolean,
         formatData: CalHeatmapFormatData,
@@ -124,13 +125,18 @@ class MileageHeatmap {
         }
 
         if (isEmpty) {
+          // Change "reviews" to "miles"
           tooltip = `<b>No</b> ${
-            Date.now() < cellData.t ? "cards due" : "reviews"
+            Date.now() < cellData.t ? "miles scheduled" : "miles logged"
           } on ${formatData.date}`;
         } else {
-          const label = Math.abs(cellData.v) == 1 ? "card" : "cards";
+          // Change "card/cards" to "mile/miles"
+          const label = Math.abs(cellData.v) == 1 ? "mile" : "miles";
+          
+          // Change "reviewed" to "logged" or "walked"
+          // Remove "due" logic if you don't plan to forecast future miles
           tooltip = `<b>${count}</b> ${label} <b>${
-            cellData.v < 0 ? "due" : "reviewed"
+            cellData.v < 0 ? "planned" : "walked"
           }</b> ${formatData.connector} ${formatData.date}`;
         }
 

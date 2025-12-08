@@ -214,7 +214,7 @@ class ActivityReporter:
             streak_cur = streak_last
 
         # Stats: average count on days with activity
-        avg_cur = int(round(total / max(days_learned, 1)))
+        avg_cur = round(total / max(days_learned, 1), 2)
 
         # Stats: percentage of days with activity
         #
@@ -431,7 +431,7 @@ class ActivityReporter:
         """
         # start, stop: timestamps in seconds. Set to None for unlimited.
         # start: inclusive; stop: exclusive
-
+        return []
         lim = ""
         if start is not None:
             lim += " AND day >= {}".format(start)

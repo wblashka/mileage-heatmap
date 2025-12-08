@@ -112,7 +112,7 @@ class HeatmapRenderer:
             levels=list(zip((0, 25, 50, 60, 70, 80, 85, 90, 95, 99), _css_colors)),
             unit=None,
         ),
-        StatsType.cards: _StatsVisual(levels=None, unit="card"),
+        StatsType.cards: _StatsVisual(levels=None, unit="mile"),
     }
 
     _dynamic_legend_factors: Tuple[float, ...] = (
