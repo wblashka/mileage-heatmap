@@ -29,7 +29,24 @@ listed here: <https://glutanimate.com/contact/>.
 Any modifications to this file must keep this entire header intact.
 */
 
-import "./_vendor/cal-heatmap.css";
+// --- CHANGED SECTION START ---
+// We import the CSS as strings (due to esbuild text loader)
+// @ts-ignore
+import calHeatmapCss from "./_vendor/cal-heatmap.css";
+// @ts-ignore
+import reviewHeatmapCss from "./css/review-heatmap.css";
+
+// Helper to inject CSS into the DOM
+function injectStyles(cssContent: string) {
+  const style = document.createElement("style");
+  style.textContent = cssContent;
+  document.head.appendChild(style);
+}
+
+// Inject the styles immediately
+injectStyles(calHeatmapCss);
+injectStyles(reviewHeatmapCss);
+// --- CHANGED SECTION END ---import "./_vendor/cal-heatmap.css";
 import "./css/review-heatmap.css";
 
 import { CalHeatMap } from "./_vendor/cal-heatmap.js";
@@ -184,7 +201,7 @@ class MileageHeatmap {
         }
 
         // Invoke browser
-        bridgeCommand("revhm_browse:" + cmd);
+        bridgeCommand("milhm_browse:" + cmd);
 
         // Update date highlight to include clicked on date AND today
         heatmap.highlight([calTodayDate, date]);
@@ -222,7 +239,7 @@ class MileageHeatmap {
 
   public onHmHome(event: KeyboardEvent, button) {
     if (event.shiftKey) {
-      bridgeCommand("revhm_modeswitch");
+      bridgeCommand("milhm_modeswitch");
     } else {
       this.heatmap.rewind();
     }
@@ -250,17 +267,17 @@ class MileageHeatmap {
 
   public onHmOpts(event: KeyboardEvent, button) {
     if (event.shiftKey) {
-      bridgeCommand("revhm_themeswitch");
+      bridgeCommand("milhm_themeswitch");
     } else {
-      bridgeCommand("revhm_opts");
+      bridgeCommand("milhm_opts");
     }
   }
 
   public onHmContrib(event, button) {
     if (event.shiftKey) {
-      bridgeCommand("revhm_snanki");
+      bridgeCommand("milhm_snanki");
     } else {
-      bridgeCommand("revhm_contrib");
+      bridgeCommand("milhm_contrib");
     }
   }
 }

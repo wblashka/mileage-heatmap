@@ -65,21 +65,21 @@ HTML_HEATMAP: str = f"""
             <span>&nbsp;</span>
         </div>
         <div class="aligncenter">
-            <div title="Go back\n(Shift-click for first year)" onclick="reviewHeatmap.onHmNavigate(event, this, 'prev');" class="hm-btn">
+            <div title="Go back\n(Shift-click for first year)" onclick="mileageHeatmap.onHmNavigate(event, this, 'prev');" class="hm-btn">
                 <img height="10px" src="{WEB_BASE}/assets/left.svg" />
             </div>
-            <div title="Today" onclick="reviewHeatmap.onHmHome(event, this);" class="hm-btn">
+            <div title="Today" onclick="mileageHeatmap.onHmHome(event, this);" class="hm-btn">
                 <img height="10px" src="{WEB_BASE}/assets/circle.svg" />
             </div>
-            <div title="Go forward\n(Shift-click for last year)" onclick="reviewHeatmap.onHmNavigate(event, this, 'next');" class="hm-btn">
+            <div title="Go forward\n(Shift-click for last year)" onclick="mileageHeatmap.onHmNavigate(event, this, 'next');" class="hm-btn">
                 <img height="10px" src="{WEB_BASE}/assets/right.svg" />
             </div>
         </div>
         <div class="alignright">
-            <div class="hm-btn opts-btn" title="Options" onclick="reviewHeatmap.onHmOpts(event, this);">
+            <div class="hm-btn opts-btn" title="Options" onclick="mileageHeatmap.onHmOpts(event, this);">
                 <img src="{WEB_BASE}/assets/options.svg" />
             </div>
-            <div class="hm-btn opts-btn" title="Support this add-on" onclick="reviewHeatmap.onHmContrib(event, this);">
+            <div class="hm-btn opts-btn" title="Support this add-on" onclick="mileageHeatmap.onHmContrib(event, this);">
                 <img src="{WEB_BASE}/assets/heart_bw.svg" />
             </div>
         </div>
