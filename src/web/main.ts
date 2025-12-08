@@ -201,7 +201,7 @@ class MileageHeatmap {
         }
 
         // Invoke browser
-        bridgeCommand("revhm_browse:" + cmd);
+        bridgeCommand("milhm_browse:" + cmd);
 
         // Update date highlight to include clicked on date AND today
         heatmap.highlight([calTodayDate, date]);
@@ -239,7 +239,7 @@ class MileageHeatmap {
 
   public onHmHome(event: KeyboardEvent, button) {
     if (event.shiftKey) {
-      bridgeCommand("revhm_modeswitch");
+      bridgeCommand("milhm_modeswitch");
     } else {
       this.heatmap.rewind();
     }
@@ -267,17 +267,17 @@ class MileageHeatmap {
 
   public onHmOpts(event: KeyboardEvent, button) {
     if (event.shiftKey) {
-      bridgeCommand("revhm_themeswitch");
+      bridgeCommand("milhm_themeswitch");
     } else {
-      bridgeCommand("revhm_opts");
+      bridgeCommand("milhm_opts");
     }
   }
 
   public onHmContrib(event, button) {
     if (event.shiftKey) {
-      bridgeCommand("revhm_snanki");
+      bridgeCommand("milhm_snanki");
     } else {
-      bridgeCommand("revhm_contrib");
+      bridgeCommand("milhm_contrib");
     }
   }
 }

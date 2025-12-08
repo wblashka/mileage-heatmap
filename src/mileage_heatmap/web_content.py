@@ -111,5 +111,5 @@ HTML_STREAK: str = """
 """
 
 HTML_INFO_NODATA: str = """
-No activity data to show (<span class="linkspan" onclick='pycmd("revhm_opts");'>options</span>).
+No activity data to show (<span class="linkspan" onclick='pycmd("milhm_opts");'>options</span>).
 """

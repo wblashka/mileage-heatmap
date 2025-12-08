@@ -2891,7 +2891,7 @@
           } else {
             cmd += "prop:due=" + diffDays;
           }
-          bridgeCommand("revhm_browse:" + cmd);
+          bridgeCommand("milhm_browse:" + cmd);
           heatmap.highlight([calTodayDate, date]);
         },
         afterLoadData: function afterLoadData(timestamps) {
@@ -2909,7 +2909,7 @@
     }
     onHmHome(event, button) {
       if (event.shiftKey) {
-        bridgeCommand("revhm_modeswitch");
+        bridgeCommand("milhm_modeswitch");
       } else {
         this.heatmap.rewind();
       }
@@ -2931,16 +2931,16 @@
     }
     onHmOpts(event, button) {
       if (event.shiftKey) {
-        bridgeCommand("revhm_themeswitch");
+        bridgeCommand("milhm_themeswitch");
       } else {
-        bridgeCommand("revhm_opts");
+        bridgeCommand("milhm_opts");
       }
     }
     onHmContrib(event, button) {
       if (event.shiftKey) {
-        bridgeCommand("revhm_snanki");
+        bridgeCommand("milhm_snanki");
       } else {
-        bridgeCommand("revhm_contrib");
+        bridgeCommand("milhm_contrib");
       }
     }
   };
