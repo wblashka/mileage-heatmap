@@ -456,6 +456,7 @@ GROUP BY day ORDER BY day""".format(
 
         return [i[:-1] for i in res]
 
+
     def _cards_done(
         self,
         start: Optional[int] = None,
@@ -464,52 +465,54 @@ GROUP BY day ORDER BY day""".format(
         """
         start: timestamp in seconds to start reporting from
 
-        Group revlog entries by day while taking local timezone and DST
-        settings into account. Return as unix timestamps of UTC day start
-        (00:00:00 UTC+0 of each day)
-
-        We perform the grouping here instead of passing the raw data on to
-        cal-heatmap because of performance reasons (user revlogs can easily
-        reach >100K entries).
-
-        Grouping-by-day needs to be timezone-aware to assign the recorded
-        timestamps to the correct day. For that reason we include the
-        'localtime' strftime modifier, even though it does come at a
-        performance penalty
-
+        BEGIN CUSTOM CODE CHANGING FROM REVIEW HEATMAP FORK
         Returns:
             [[int, int]**]
         """
-        offset = self._offset * 3600
+        NOTE_TYPE_NAME = "MileageLog"
 
-        lims = []
-        if start is not None:
-            lims.append("day >= {}".format(start))
+        model = self._col.models.by_name(NOTE_TYPE_NAME)
+        if not model:
+            return []
+        mid = model['id']
 
-        if self._ignore_rescheduled_entries:
-            lims.append("ease >= 1")
+        cmd = f"SELECT flds FROM notes WHERE mid = {mid}"
+        notes = self._db.list(cmd)
 
-        deck_limit = self._revlog_limit(current_deck_only)
-        if deck_limit:
-            lims.append(deck_limit)
+        daily_totals = {}
 
-        lim = "WHERE " + " AND ".join(lims) if lims else ""
+        for fields_string in notes:
+            fields = fields_string.split('\x1f')
 
-        cmd = """\
-SELECT CAST(STRFTIME('%s', id / 1000 - {}, 'unixepoch',
-                     'localtime', 'start of day') AS int)
-AS day, COUNT()
-FROM revlog {}
-GROUP BY day ORDER BY day""".format(
-            offset, lim
-        )
+            # Assuming field 1 is Date (YYYY-MM-DD) and Field 2 is miles
+            date_str = fields[0].strip()
+            miles_str = fields[1].strip()
 
-        res = self._db.all(cmd)
+            try:
+                # Parse date to object
+                dt = datetime.datetime.strptime(date_str,"%Y-%m-%d")
 
-        if isDebuggingOn():
-            self.__debug_cards_done(cmd, res)
+                # Convert to UTC
+                timestamp = int(dt.replace(tzinfo=datetime.timezone.utc).timestamp())
 
-        return res
+                miles = float(miles_str)
+
+                # add to total
+                if timestamp in daily_totals:
+                    daily_totals[timestamp] += miles
+                else:
+                    daily_totals[timestamp] = miles
+            
+            except (ValueError, IndexError):
+                continue
+
+        results = []
+        for timestamp, total_miles in daily_totals.items():
+            results.append([timestamp, total_miles])
+        
+        return results
+
+
 
     def __debug_cards_due(self, cmd: str, res: List[Sequence[int]]):
         sched_ver = self._sched_ver
