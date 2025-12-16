@@ -465,6 +465,58 @@ select.hm-sel:active, select.hm-sel:focus {
 .night_mode .rh-theme-flame .rh-col19{color: #fed976}
 .night_mode .rh-theme-flame .rh-col20{color: #ffeda0}
 
+/* Custom Theme: Fire & Ice */
+
+/* LIGHT MODE */
+/* Define the fill color for the heatmap squares */
+.rh-theme-fireice .cal-heatmap-container .q11{fill: #a8d5f6} /* Lightest Blue */
+.rh-theme-fireice .cal-heatmap-container .q12{fill: #95c8f3}
+.rh-theme-fireice .cal-heatmap-container .q13{fill: #82bbf0}
+.rh-theme-fireice .cal-heatmap-container .q14{fill: #70afee} /* ... transitioning ... */
+.rh-theme-fireice .cal-heatmap-container .q15{fill: #b39ddb} /* ... through purple ... */
+.rh-theme-fireice .cal-heatmap-container .q16{fill: #ef9a9a}
+.rh-theme-fireice .cal-heatmap-container .q17{fill: #e57373}
+.rh-theme-fireice .cal-heatmap-container .q18{fill: #ef5350}
+.rh-theme-fireice .cal-heatmap-container .q19{fill: #f44336}
+.rh-theme-fireice .cal-heatmap-container .q20{fill: #d32f2f} /* Darkest Red */
+
+/* Define text colors (usually matches the fill) */
+.rh-theme-fireice .rh-col11{color: #a8d5f6}
+.rh-theme-fireice .rh-col12{color: #95c8f3}
+.rh-theme-fireice .rh-col13{color: #82bbf0}
+.rh-theme-fireice .rh-col14{color: #70afee}
+.rh-theme-fireice .rh-col15{color: #b39ddb}
+.rh-theme-fireice .rh-col16{color: #ef9a9a}
+.rh-theme-fireice .rh-col17{color: #e57373}
+.rh-theme-fireice .rh-col18{color: #ef5350}
+.rh-theme-fireice .rh-col19{color: #f44336}
+.rh-theme-fireice .rh-col20{color: #d32f2f}
+
+/* NIGHT MODE */
+/* Invert logic: Dark colors for low activity, Bright colors for high activity */
+.night_mode .rh-theme-fireice .cal-heatmap-container .q11{fill: #1a237e} /* Dark Deep Blue */
+.night_mode .rh-theme-fireice .cal-heatmap-container .q12{fill: #283593}
+.night_mode .rh-theme-fireice .cal-heatmap-container .q13{fill: #303f9f}
+.night_mode .rh-theme-fireice .cal-heatmap-container .q14{fill: #3949ab}
+.night_mode .rh-theme-fireice .cal-heatmap-container .q15{fill: #5c6bc0}
+.night_mode .rh-theme-fireice .cal-heatmap-container .q16{fill: #7986cb}
+.night_mode .rh-theme-fireice .cal-heatmap-container .q17{fill: #e57373}
+.night_mode .rh-theme-fireice .cal-heatmap-container .q18{fill: #ef5350}
+.night_mode .rh-theme-fireice .cal-heatmap-container .q19{fill: #f44336}
+.night_mode .rh-theme-fireice .cal-heatmap-container .q20{fill: #ffcdd2} /* Bright/Pale Red */
+
+/* Night mode text colors */
+.night_mode .rh-theme-fireice .rh-col11{color: #1a237e}
+.night_mode .rh-theme-fireice .rh-col12{color: #283593}
+.night_mode .rh-theme-fireice .rh-col13{color: #303f9f}
+.night_mode .rh-theme-fireice .rh-col14{color: #3949ab}
+.night_mode .rh-theme-fireice .rh-col15{color: #5c6bc0}
+.night_mode .rh-theme-fireice .rh-col16{color: #7986cb}
+.night_mode .rh-theme-fireice .rh-col17{color: #e57373}
+.night_mode .rh-theme-fireice .rh-col18{color: #ef5350}
+.night_mode .rh-theme-fireice .rh-col19{color: #f44336}
+.night_mode .rh-theme-fireice .rh-col20{color: #ffcdd2}
+
 
 /* Platform-specific adjustments / workarounds */
 /* ################################################################### */
